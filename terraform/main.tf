@@ -19,7 +19,7 @@ resource "aws_iam_role" "translation_lambda_role" {
 
 resource "aws_iam_role_policy_attachment" "translate_full_access" {
   role       = aws_iam_role.translation_lambda_role.name
-  policy_arn = "arn:aws:iam::aws:policy/TranslateFullAccess"
+  policy_arn = "arn:aws:iam::aws:policy/TranslateReadOnly"
 }
 
 resource "aws_iam_role_policy_attachment" "lambda_basic_execution" {
@@ -29,7 +29,7 @@ resource "aws_iam_role_policy_attachment" "lambda_basic_execution" {
 
 data "archive_file" "lambda_package" {
   type        = "zip"
-  source_dir  = "${path.module}/../src"
+  source_dir  = "${path.module}/../src/translate_function"
   output_path = "${path.module}/lambda.zip"
 }
 
