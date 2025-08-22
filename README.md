@@ -67,7 +67,7 @@ To provision the required AWS infrastructure, deploy using **SAM** or **Terrafor
 - `..\Python312\`
 - `..\Python312\Scripts`  
 
-Also confirm the AWS CLI is configured (`aws configure`) with credentials that have sufficient permissions to **deploy Lambda functions** and manage **IAM roles**.
+Also confirm the AWS CLI is configured (`aws configure`) with credentials that have sufficient permissions to deploy **Lambda functions** and manage **IAM roles**.
 
 ## Project Structure
 ```plaintext
@@ -80,15 +80,17 @@ aws-lex-language-translation-bot/
 │   └── template.yaml                 # Main SAM template
 ├── terraform/                   # Terraform templates
 │   ├── main.tf                       # Main Terraform config
-│   ├── outputs.tf					  # Outputs definitions
-│   ├── variables.tf                  # Variables definitions
+│   ├── outputs.tf					  # Output definitions
+│   ├── variables.tf                  # Variable definitions
 │   └── terraform.tfvars              # Sample variable values
-├── src/                         # Lambda source code
-│   ├── lambda_function.py            # Lambda function code
-│   └── event.json             	 	  # Lambda test event
-├── LICENSE                      # MIT License
-├── README.md                    # Project documentation
-└── .gitignore                   # Git ignored files
+├── src/                         # Lambda source code and events
+│   ├── translate_function/		      # Lambda function
+│	│   └── translate_function.py         
+│   └── events/						  # Lambda test events
+│       └── event.json                     
+├── LICENSE                      
+├── README.md                    
+└── .gitignore                   
 ```
 
 ## Screenshot
@@ -139,7 +141,13 @@ This project is licensed under the [MIT License](LICENSE).
 
 ---
 
-### Author
+## Author
 **Patrick Heese**  
 Cloud Administrator | Aspiring Cloud Engineer/Architect  
 [LinkedIn Profile](https://www.linkedin.com/in/patrick-heese/) | [GitHub Profile](https://github.com/patrick-heese)
+
+## Acknowledgments
+This project was inspired by a course from [techwithlucy](https://github.com/techwithlucy).  
+The Lambda function code is taken directly from the author's original implementation.  
+All Infrastructure-as-Code (CloudFormation, SAM, Terraform) and documentation were designed and developed by me.  
+The architecture diagram included here is my own version, adapted from the original course diagram.  
