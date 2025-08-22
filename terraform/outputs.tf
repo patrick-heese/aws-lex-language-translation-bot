@@ -16,4 +16,5 @@ output "lambda_role_name" {
 output "lambda_role_arn" {
   description = "ARN of the IAM role used by Lambda"
   value       = aws_iam_role.translation_lambda_role.arn
+
 }
