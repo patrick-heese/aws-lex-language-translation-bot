@@ -104,7 +104,7 @@ aws-lex-language-translation-bot/
 
 2. **Create the Lex bot manually in the AWS Management Console**, following these steps: create the bot, add the `TranslateIntent` with slots (text, language), configure utterances, and attach the Lambda fulfillment function. See [LEX_SETUP.md](assets/LEX_SETUP.md) for full details.
 
-3. **Test the Lambda function directly**. The file `../src/event.json` can be used to test the function.  
+3. **Test the Lambda function directly**. The file `../src/events/event.json` can be used to test the function.  
 
    **3a. Use the AWS CLI:**
 
@@ -112,8 +112,8 @@ aws-lex-language-translation-bot/
      aws lambda invoke \
 	 --function-name translation-lambda \
 	 --invocation-type RequestResponse \
-	 --payload fileb://src/event.json \
-	 src/response.json
+	 --payload fileb://src/events/event.json \
+	 src/events/response.json
      ```
 
    **3b. Use the AWS Management Console:**
