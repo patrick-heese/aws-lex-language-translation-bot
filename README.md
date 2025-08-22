@@ -80,9 +80,11 @@ aws-lex-language-translation-bot/
 │   └── template.yaml                 # Main SAM template
 ├── terraform/                   # Terraform templates
 │   ├── main.tf                       # Main Terraform config
-│   ├── outputs.tf					  # Output definitions
-│   ├── variables.tf                  # Variable definitions
-│   └── terraform.tfvars              # Sample variable values
+│   ├── variables.tf                  # Input variables
+│   ├── outputs.tf					  # Exported values
+│   ├── terraform.tfvars              # Default variable values
+│   ├── providers.tf			      # AWS provider definition
+│   └── versions.tf					  # Terraform version constraint
 ├── src/                         # Lambda source code and events
 │   ├── translate_function/		      # Lambda function
 │	│   └── translate_function.py         
