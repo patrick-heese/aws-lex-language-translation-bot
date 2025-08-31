@@ -69,6 +69,33 @@ To provision the required AWS infrastructure, deploy using **SAM** or **Terrafor
 
 Also confirm the AWS CLI is configured (`aws configure`) with credentials that have sufficient permissions to deploy **Lambda functions** and manage **IAM roles**.
 
+## How to Use
+1. **Deploy the infrastructure** using SAM or Terraform.
+
+2. **Create the Lex bot manually in the AWS Management Console**, following these steps: create the bot, add the `TranslateIntent` with slots (text, language), configure utterances, and attach the Lambda fulfillment function. See [LEX_SETUP.md](assets/LEX_SETUP.md) for full details.
+
+3. **Test the Lambda function directly**. The file `../src/events/event.json` can be used to test the function.  
+
+   **3a. Use the AWS CLI:**
+
+     ```bash
+     aws lambda invoke \
+	 --function-name translation-lambda \
+	 --invocation-type RequestResponse \
+	 --payload fileb://src/events/event.json \
+	 src/events/response.json
+     ```
+
+   **3b. Use the AWS Management Console:**
+   - Navigate to **Lambda** and select the function.  
+   - Select **Test**.
+	 - Select **Create new event**
+   - Enter an **Event name**.
+   - In Event JSON, enter the contents of the event.json file.
+   - Select **Test** in the upper right of the Test event dialog.
+
+4. **Test the Chatbot**. Click **Test** in the upper right hand side of the Intent screen and enter text that aligns with the utterances configured.
+
 ## Project Structure
 ```plaintext
 aws-lex-language-translation-bot/
@@ -99,34 +126,6 @@ aws-lex-language-translation-bot/
 ![Chatbot Application](assets/screenshot.png)
 
 *Figure 2: Amazon Lex Language Translation Bot Input/Output Example
-
-## How to Use
-
-1. **Deploy the infrastructure** using SAM or Terraform.
-
-2. **Create the Lex bot manually in the AWS Management Console**, following these steps: create the bot, add the `TranslateIntent` with slots (text, language), configure utterances, and attach the Lambda fulfillment function. See [LEX_SETUP.md](assets/LEX_SETUP.md) for full details.
-
-3. **Test the Lambda function directly**. The file `../src/events/event.json` can be used to test the function.  
-
-   **3a. Use the AWS CLI:**
-
-     ```bash
-     aws lambda invoke \
-	 --function-name translation-lambda \
-	 --invocation-type RequestResponse \
-	 --payload fileb://src/events/event.json \
-	 src/events/response.json
-     ```
-
-   **3b. Use the AWS Management Console:**
-   - Navigate to **Lambda** and select the function.  
-   - Select **Test**.
-	 - Select **Create new event**
-   - Enter an **Event name**.
-   - In Event JSON, enter the contents of the event.json file.
-   - Select **Test** in the upper right of the Test event dialog.
-
-4. **Test the Chatbot**. Click **Test** in the upper right hand side of the Intent screen and enter text that aligns with the utterances configured.
 
 ## Future Enhancements
 - Customizing `FallbackIntent` response and adding more utterances/intents.
