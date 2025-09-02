@@ -28,7 +28,7 @@ This project implements a serverless, AI-driven chatbot using **Amazon Lex** tha
 - Easily extensible for additional languages and channels.
 
 ## Tech Stack
-- **Languages:** Python 3.x
+- **Languages:** Python 3.12
 - **AWS Services**: Lex (V2), Lambda, Translate, IAM
 - **IaC Tools:** AWS SAM, Terraform
 - **Other Tools:** AWS CLI
