@@ -99,20 +99,20 @@ Also confirm the AWS CLI is configured (`aws configure`) with credentials that h
 ## Project Structure
 ```plaintext
 aws-lex-language-translation-bot/
-├── assets/                      # Images, diagrams, screenshots
+├── assets/                      	  # Images, diagrams, screenshots
 │   ├── architecture-diagram.png      # Project architecture
 │   ├── screenshot.png    			  # Application screenshot
 │   └── LEX_SETUP.md				  # Lex Setup instructions
-├── cloudformation/              # AWS SAM template
+├── cloudformation/                   # AWS SAM template
 │   └── template.yaml                 # Main SAM template
-├── terraform/                   # Terraform templates
+├── terraform/                        # Terraform templates
 │   ├── main.tf                       # Main Terraform config
 │   ├── variables.tf                  # Input variables
 │   ├── outputs.tf					  # Exported values
 │   ├── terraform.tfvars              # Default variable values
 │   ├── providers.tf			      # AWS provider definition
 │   └── versions.tf					  # Terraform version constraint
-├── src/                         # Lambda source code and events
+├── src/                              # Lambda source code and events
 │   ├── translate_function/		      # Lambda function
 │	│   └── translate_function.py         
 │   └── events/						  # Lambda test events
