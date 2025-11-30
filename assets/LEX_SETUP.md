@@ -1,56 +1,56 @@
-**Create the Lex Bot** in AWS Management Console
-- Select **Traditional** and **Create a blank bot**.
-- Enter a **Bot name** and **Description** *(Optional)*.
-- Select **Create a role with basic Amazon Lex permissions**.
-- Select **No** under Children's Online Privacy Protection Act (COPPA).
-- Select **English (US)** as the language and select a **Voice Interaction**.
-- Click **Done**.
-- Add intent details.
-	- **Intent name**: `TranslateIntent`
-	- **Intent and utterance generation description:** `This intent will translate the text.`
-- Add some sample utterances.
-	- `I want to translate`
-	- `Can you help me translate`
-	- `Translate for me`
-- Click **Save intent**.
-- Return to the All languages > Language English (US) section and select **View Slot Types**.
-- Select **Add slot type** and **Add blank slot type**. Enter `language` for the **Slot type name**.
-- Add values to the **Slot type values**, listing all the languages that the bot will translate for.
-	- **Slot type values:** `French`, `Japanese`, `Chinese`, `Spanish`, `German`, `Norwegian`.
-- Click **Save Slot type**.
-- Return to the All languages > Language: English (US) > View Intents.
-- Select the `TranslateIntent` intent.
-- Select **Add slot** under Slots. Create the following slots under the `TranslateIntent` intent.
-	1. language
-		- **Name:** `language`
-		- **Slot type:** `language`
-		- **Prompts:** `Which language would you like me to translate to?`
-	2. text
-		- **Name:** `text`
-		- **Slot type:** `AMAZON.FreeFormInput`
-		- **Prompts:** `Please input the text you want to translate.`
-- Select **Add utterance** and add some more utterances specifying the `language` slot.
-	- `I want to translate in {language}`
-	- `Translate in {language}`
-	- `Can you translate in {language} for me?`	
-- Under Initial response, select **Response to acknowledge the user's request**.
-- Add the **Message:** `Sure, I can help you with that.`
-- Under Fulfillment, select **On successful fulfillment**.
-	- **On successful fulfillment:** `Your request has been completed successfully.`
-	- **In case of failure:** `Something went wrong.`
-	- Select **Active** on the top right hand side of the Fulfillment section.
-- Select **Advanced options** under Fulfillment.
-	- Select **Use a Lambda function for fulfillment** if not already checked.
-	- Select **Update options**.
-- Under Closing response, select **Response set to the user after the intent is fulfilled**.
-	- **Message:** `I hope the translation was helpful!`
-	- Select **Active** on the top right hand side of the Closing response section.
-- Select `Save intent`.
-- Click **Test** in the upper right hand side of the Intent screen.
-	- When the chatbot opens, select the gear icon.
-	- Under settings, select your deployed **Lambda function**.
-		- **Source**: `translation-lambda`
-		- **Lambda function version or alias**: `$LATEST`
-	- Select **Save**.
-- Don't forget to **Build** the bot after making changes. A build is required before you can test or update fulfillment settings.
-- Once the build completes, you can interact with the bot in the Test window.
+**Create the Lex Bot** in AWS Management Console  
+- Select **Traditional** and **Create a blank bot**.  
+- Enter a **Bot name** and **Description** *(Optional)*.  
+- Select **Create a role with basic Amazon Lex permissions**.  
+- Select **No** under Children's Online Privacy Protection Act (COPPA).  
+- Select **English (US)** as the language and select a **Voice Interaction**.  
+- Click **Done**.  
+- Add intent details.  
+	- **Intent name**: `TranslateIntent`  
+	- **Intent and utterance generation description:** `This intent will translate the text.`  
+- Add some sample utterances.  
+	- `I want to translate`  
+	- `Can you help me translate`  
+	- `Translate for me`  
+- Click **Save intent**.  
+- Return to the All languages > Language English (US) section and select **View Slot Types**.  
+- Select **Add slot type** and **Add blank slot type**. Enter `language` for the **Slot type name**.  
+- Add values to the **Slot type values**, listing all the languages that the bot will translate for.  
+	- **Slot type values:** `French`, `Japanese`, `Chinese`, `Spanish`, `German`, `Norwegian`.  
+- Click **Save Slot type**.  
+- Return to the All languages > Language: English (US) > View Intents.  
+- Select the `TranslateIntent` intent.  
+- Select **Add slot** under Slots. Create the following slots under the `TranslateIntent` intent.  
+	1. language  
+		- **Name:** `language`  
+		- **Slot type:** `language`  
+		- **Prompts:** `Which language would you like me to translate to?`  
+	2. text  
+		- **Name:** `text`  
+		- **Slot type:** `AMAZON.FreeFormInput`  
+		- **Prompts:** `Please input the text you want to translate.`  
+- Select **Add utterance** and add some more utterances specifying the `language` slot.  
+	- `I want to translate in {language}`  
+	- `Translate in {language}`  
+	- `Can you translate in {language} for me?`  
+- Under Initial response, select **Response to acknowledge the user's request**.  
+- Add the **Message:** `Sure, I can help you with that.`  
+- Under Fulfillment, select **On successful fulfillment**.  
+	- **On successful fulfillment:** `Your request has been completed successfully.`  
+	- **In case of failure:** `Something went wrong.`  
+	- Select **Active** on the top right hand side of the Fulfillment section.  
+- Select **Advanced options** under Fulfillment.  
+	- Select **Use a Lambda function for fulfillment** if not already checked.  
+	- Select **Update options**.  
+- Under Closing response, select **Response set to the user after the intent is fulfilled**.  
+	- **Message:** `I hope the translation was helpful!`  
+	- Select **Active** on the top right hand side of the Closing response section.  
+- Select `Save intent`.  
+- Click **Test** in the upper right hand side of the Intent screen.  
+	- When the chatbot opens, select the gear icon.  
+	- Under settings, select your deployed **Lambda function**.  
+		- **Source**: `translation-lambda`  
+		- **Lambda function version or alias**: `$LATEST`  
+	- Select **Save**.  
+- Don't forget to **Build** the bot after making changes. A build is required before you can test or update fulfillment settings.  
+- Once the build completes, you can interact with the bot in the Test window.  
