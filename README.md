@@ -91,8 +91,6 @@ aws-lex-language-translation-bot/
 │   ├── architecture-diagram.png      # Project architecture
 │   ├── screenshot.png                # Application screenshot
 │   └── LEX_SETUP.md                  # Lex Setup instructions
-├── cloudformation/                   # AWS SAM template
-│   └── template.yaml                 # Main SAM template
 ├── terraform/                        # Terraform templates
 │   ├── main.tf                       # Main Terraform config
 │   ├── variables.tf                  # Input variables
